@@ -9,18 +9,28 @@ const facts = [{ quote: "It has dynamic typing, prototype - based object - orien
 { quote: "JavaScript engines were originally used only in web browsers, but are now core components of some servers and a variety of applications. The most popular runtime system for this usage is Node.js." }]
 
 
-let num = 0; //* to generate different random numbers each time with more possibility
+let num = 0; //* to generate different random numbers each time 
 
+const randomGenerator = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 button.addEventListener("click", function () {
-  let random = Math.trunc(Math.random() * 6);
+  let random = randomGenerator(0,6);
+
   if (num != random) {
     fact.innerHTML = facts[random].quote
     num = random;
+  
   }else {
-    random = Math.trunc(Math.random() * num)+1;
+    random = randomGenerator(random,6)+1;
+    if (random==6){
+      random = randomGenerator(0,random);
+      fact.innerHTML = facts[random].quote; 
+    }else{
+      fact.innerHTML = facts[random].quote; 
+    }
   }
   num = random;
 
 })
+
 

@@ -13,14 +13,25 @@ const facts = [{ quote: "Glaciers and ice sheets hold about 69 percent of the wo
 
 let num = 0; //* to generate different random numbers each time with more possibility
 
+const randomGenerator = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
 opnBtn.addEventListener("click",function(){
   container.style.display="flex"
-  let random = Math.trunc(Math.random() * 6);
+
+  let random = randomGenerator(0,6);
+  
   if (num != random) {
     fact.innerHTML = facts[random].quote
     num = random;
+  
   }else {
-    random = Math.trunc(Math.random() * num)+1;
+    random = randomGenerator(random,6)+1;
+    if (random==6){
+      random = randomGenerator(0,random);
+      fact.innerHTML = facts[random].quote; 
+    }else{
+      fact.innerHTML = facts[random].quote; 
+    }
   }
   num = random;
 
