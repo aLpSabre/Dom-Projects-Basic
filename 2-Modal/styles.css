@@ -10,6 +10,7 @@ body{
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
   url("./nasa-Q1p7bh3SHj8-unsplash.jpg")no-repeat center center /cover ;
   color:white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container{
