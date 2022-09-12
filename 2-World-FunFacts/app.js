@@ -17,7 +17,7 @@ const randomGenerator = (min, max) => Math.floor(Math.random() * (max - min)) + 
 
 opnBtn.addEventListener("click",function(){
   container.style.display="flex"
-
+console.log("open");
   let random = randomGenerator(0,6);
   
   if (num != random) {
@@ -39,4 +39,11 @@ opnBtn.addEventListener("click",function(){
 })
 clsBtn.addEventListener("click",function(){
   container.style.display="none"
+  console.log("cls");
 })
+
+window.addEventListener("click",function(e){
+  if(e.target!==opnBtn){
+    container.style.display="none"
+  }
+});
